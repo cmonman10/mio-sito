@@ -1,0 +1,374 @@
+@font-face {
+  font-family: "Titolo";
+  src: url(BodoniXT.ttf);
+}
+@font-face {
+  font-family: "Barra menu";
+  src: url(CELTG___.TTF);
+}
+@font-face {
+  font-family: "Desc";
+  src: url(Georgia.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+}
+body {
+  position: relative;
+  font-family: system-ui, sans-serif;
+  color: white;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) ,url(trattoria.jpg) center / cover no-repeat;
+  filter: blur(0.5rem);
+  z-index: -1;
+}
+
+/* --- HEADER PER DESKTOP --- */
+.bello-header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  background: #030303;
+  color: white;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.header-left {
+  flex: 1;
+}
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo {
+  height: 2.5rem;
+  opacity: 0.9;
+}
+.header-text {
+  font-size: 1.5rem;
+  font-family: 'Titolo', Times, serif;
+}
+.search-bar {
+  display: flex;
+  background: #121212;
+  border: 0.0625rem solid #303030; 
+  border-radius: 2rem;
+}
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  width: 14rem;
+  font-family: 'Titolo';
+}
+.search-bar input::placeholder {
+  color: #aaa;
+}
+.search-bar button {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+/* --- LAYOUT DESKTOP (COLONNE VERTICALI) --- */
+.sidebar {
+  position: fixed;
+  top: 4rem; 
+  left: 0;
+  width: 13.75rem; 
+  height: calc(100% - 4rem);
+  background: #030303;
+  padding: 1.5rem 1rem;
+  font-family: "Barra menu";
+}
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "Barra menu";
+}
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: "Barra menu";
+}
+.sidebar a:hover {
+  color: #caa45d;
+}
+.sidebar-extra {
+  position: fixed;
+  top: 4rem;
+  left: 13.75rem; 
+  width: 30rem; 
+  height: calc(100% - 4rem);
+  background: #808080;
+  backdrop-filter: blur(0.25rem);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: "Desc";
+}
+.sidebar-extra .extra-logo img {
+  max-width: 20rem;
+  height: 15rem;
+  margin-bottom: 3rem;
+  margin-top: 4rem;
+  border-radius: 10px;
+}
+.sidebar-extra .extra-text p {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "Desc";
+}
+summary {
+  font-size: 1.5rem;
+  font-family: "Barra menu";
+}
+#menu ul, #bevande ul {
+  padding-left: 1.5rem;
+  line-height: 3rem;
+}
+#menu ul li, #bevande ul li {
+  list-style-type: none;
+  line-height: 3rem;
+}
+.social-buttons {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.1rem;    
+}
+.social-buttons a {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.4rem; 
+  background: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;    
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+  font-family: "Desc";
+}
+.social-buttons a:hover {
+  background: #caa45d;
+  color: #030303;
+  transform: translateY(-2px);
+}
+#a-sidebar {
+  color: white;
+}
+.sidebar-menu {
+  position: absolute;
+  top: 4rem;
+  left: 50rem; 
+  width: 40rem; 
+  height: calc(100% - 4rem);
+  backdrop-filter: blur(0.25rem);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #F5E9D8;
+  text-shadow: 0 5px 8px rgba(0,0,0,0.9);
+  font-size: 1.3rem;
+  font-family: "Barra menu";
+}
+.sidebar-menu p {
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+.sidebar-menu h1 {
+  padding-top: 3rem;
+  font-size: 4rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.sidebar-menu h3 {
+  padding-left: 0.3rem;
+}
+.sidebar-menu h2 {
+  font-size: 2.5rem;
+}
+.sidebar-menu h1,
+.sidebar-menu h2,
+.sidebar-menu h3 {
+  scroll-margin-top: 5rem; 
+}
+.highlight {
+  background-color: #aaa;
+  font-weight: bold;
+}
+.language-selector {
+  background: #121212;
+  border: 0.0625rem solid #303030;
+  border-radius: 2rem;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Titolo', Times, serif;
+  font-size: 0.9rem;
+  transition: border-color 0.25s ease;
+}
+.language-selector:hover {
+  border-color: #caa45d; 
+}
+.language-selector option {
+  background: #121212;
+  color: white;
+}
+
+/* ==========================================================
+   MEDIA QUERY PER MOBILE: NUOVO LAYOUT ORIZZONTALE CON FOCUS TESTO
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Header compatto */
+  .header-center {
+    display: none; 
+  }
+  .bello-header {
+    padding: 0 0.8rem;
+    height: 3.8rem;
+  }
+  .search-bar input {
+    width: 8rem;
+  }
+
+  /* 1. PRIMA BANDA ORIZZONTALE: MENU DI NAVIGAZIONE */
+  .sidebar {
+    position: relative;
+    top: 3.8rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: #030303;
+    padding: 1rem;
+    border-bottom: 1px solid #303030;
+  }
+  .sidebar nav {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .sidebar nav details {
+    width: 48%;
+  }
+  summary {
+    font-size: 1.2rem;
+    color: #caa45d;
+  }
+
+  /* 2. SECONDA BANDA ORIZZONTALE: INFORMAZIONI E CONTATTI */
+  .sidebar-extra {
+    position: relative;
+    top: 3.8rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #303030;
+  }
+
+  /* SCOMPARSA DEL LOGO IN MEZZO PER DARE SPAZIO AL TESTO */
+  .sidebar-extra .extra-logo img,
+  .sidebar-extra .extra-logo {
+    display: none !important;
+  }
+
+  /* Testi grandi, leggibili e in primo piano */
+  .sidebar-extra .extra-text {
+    width: 100%;
+    font-size: 1.15rem;
+  }
+  .sidebar-extra .extra-text p {
+    margin-bottom: 0.8rem;
+    text-align: center;
+    line-height: 1.6rem;
+    color: #ffffff;
+    font-size: 1.1rem;
+  }
+  .sidebar-extra .extra-text a {
+    color: #caa45d !important;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  /* 3. TERZA BANDA ORIZZONTALE: MENU PIATTI E BEVANDE */
+  .sidebar-menu {
+    position: relative;
+    top: 3.8rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .sidebar-menu h1 {
+    font-size: 2.3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #ffffff;
+  }
+  .sidebar-menu h2 {
+    font-size: 1.7rem;
+    color: #caa45d;
+    margin-top: 1.2rem;
+    border-bottom: 1px solid rgba(202, 164, 93, 0.3);
+    padding-bottom: 0.3rem;
+  }
+  .sidebar-menu h3 {
+    font-size: 1.3rem;
+    padding-left: 0;
+    margin-top: 0.8rem;
+    color: #ffffff;
+  }
+  .sidebar-menu p {
+    padding-left: 0;
+    line-height: 1.6rem;
+    font-size: 1.05rem;
+    color: #f0f0f0;
+  }
+  .highlight {
+    background-color: #caa45d;
+    color: #030303;
+    font-weight: bold;
+    padding: 0 0.2rem;
+  }
+}
