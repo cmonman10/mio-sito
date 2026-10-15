@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Antica trattoria Campari</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<script> 
+    document.addEventListener("DOMContentLoaded", 
+    function() { 
+        const input = document.getElementById("searchInput"); 
+        const paragraphs = document.querySelectorAll(".sidebar-menu .extra-text p"); 
+        function clearHighlights() { paragraphs.forEach(p => { p.innerHTML = p.textContent; }); } 
+        function highlightWords(element, words) { let text = element.textContent; 
+        words.forEach(word => { const regex = new RegExp("(" + word + ")", "gi"); 
+        text = text.replace(regex, '<span class="highlight">$1</span>'); }); element.innerHTML = text; } 
+        input.addEventListener("input", function() { const value = input.value.toLowerCase().trim(); 
+        const words = value.split(/\s+/).filter(w => w.length > 0); clearHighlights(); 
+        if (words.length === 0) { paragraphs.forEach(p => p.style.display = ""); return; } 
+        paragraphs.forEach(p => { const text = p.textContent.toLowerCase(); 
+        const match = words.every(word => text.includes(word)); 
+        if (match) { p.style.display = ""; highlightWords(p, words); } 
+        else { p.style.display = "none"; } }); }); 
+    });
+</script>
+<body>
+    <header class="bello-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="immagini/1000015052.jpg" alt="Logo" class="logo">
+            </div>
+        </div>
+        <div class="header-center">
+            <span class="header-text" data-i18n="header_slogan">
+                Il sapore della tradizione cremasca
+            </span>
+        </div>
+        <div class="header-right">
+            <!-- Menu a tendina per il cambio lingua (con classe CSS dedicata) -->
+            <select id="language-select" class="language-selector">
+                <option value="it">ITA</option>
+                <option value="en">ENG</option>
+                <option value="es">ESP</option>
+            </select>
+
+            <form class="search-bar" onsubmit="return false;">
+                 <input type="text" id="searchInput" placeholder="Cerca il tuo piatto preferito" data-i18n-placeholder="search_placeholder">
+                 <button type="submit">🔍</button>
+            </form>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <nav>
+            <details id="menu">
+                <summary data-i18n="nav_menu">Menu</summary>
+                <ul>
+                    <li><a href="#oca" data-i18n="nav_oca">Oca</a></li>
+                    <li><a href="#asino" data-i18n="nav_asino">Asina</a></li>
+                    <li><a href="#cinghiale" data-i18n="nav_cinghiale">Cinghiale</a></li>
+                    <li><a href="#lepre" data-i18n="nav_lepre">Lepre</a></li>
+                    <li><a href="#bolliti" data-i18n="nav_bolliti">Bolliti</a></li>
+                    <li><a href="#capriolo" data-i18n="nav_capriolo">Capriolo</a></li>
+                    <li><a href="#cervo" data-i18n="nav_cervo">Cervo</a></li>
+                </ul>
+                </details>
+
+                <details id="bevande">
+                <summary data-i18n="nav_drinks">Bevande</summary>
+                <ul>
+                    <li><a href="#vini-rossi" data-i18n="nav_red_wine">Vini rossi</a></li>
+                    <li><a href="#vini-bianchi" data-i18n="nav_white_wine">Vini bianchi</a></li>
+                    <li><a href="#analcolici" data-i18n="nav_soft_drinks">Bevande analcoliche</a></li>
+                </ul>
+                </details>
+        </nav>
+    </aside>
+    <aside class="sidebar-extra">
+        <div class="extra-logo">
+            <img src="immagini/1000015052.jpg" alt="logo-extra">
+        </div>
+        <div class="extra-text">
+            <p data-i18n="extra_welcome">Benvenuti nella nostra trattoria!</p>
+            <p data-i18n="extra_discover">Scopri i piatti tipici della tradizione cremasca.</p>
+            <p data-i18n="extra_experience">Vieni a trovarci per un’esperienza indimenticabile dal 1893.</p>
+            
+            <p><a href="mailto: antica@gmail.com" id="a-sidebar" data-i18n="extra_email">La nostra mail per maggiori informazioni</a></p>
+            <p><a href="telto: +393388421624" id="a-sidebar" data-i18n="extra_phone">Il nostro numero di telefono</a></p>
+        </div>
+        <br>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/rudycampari/" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/trattoriacampari/?locale=it_IT" target="_blank" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+    </aside>
+    <aside class="sidebar-menu">
+        <div class="sfoca-nero">
+        <div class="extra-text">
+        
+        <h1 id="menu-principale" data-i18n="main_menu_title">Menù</h1>
+        <br>
+            <h2 data-i18n="section_brasati">I BRASATI</h2>
+        <br>
+    <h3 id="cinghiale" data-i18n="dish_wild_boar">Il Cinghiale – 30,00 € </h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="wild_boar_pasta">Tagliatelle al ragù di cinghiale</p>
+            <p data-i18n="wild_boar_main">Stracotto (Brasato) di cinghiale con polenta, zola dolce e patate rosse di Colfiorito</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+            <br>
+
+    <h3 id="asino" data-i18n="dish_donkey">L’Asina – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="donkey_pasta">Tagliatelle al ragù di asina</p>
+            <p data-i18n="donkey_main">Stracotto (Brasato) di asina con polenta, zola dolce e patate rosse di Colfiorito</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+    
+    <h3 id="cervo" data-i18n="dish_deer">Il Cervo – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="deer_pasta">Tagliatelle al ragù di cervo</p>
+            <p data-i18n="deer_main">Stracotto (Brasato) di cervo con polenta, zola dolce e patate rosse di Colfiorito</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+
+    <h2 data-i18n="section_farm">LA CASCINA</h2>
+        <br>
+
+    <h3 id="oca" data-i18n="dish_goose">L’Oca – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="goose_p1">Ciccioli d’Oca (Gratù)</p>
+            <p data-i18n="goose_p2">Fegato d’Oca al salto</p>
+            <p data-i18n="goose_p3">Bracioline (Brisole) di petto d’Oca</p>
+            <p data-i18n="goose_p4">Cassoela d’Oca con le verze</p>
+            <p data-i18n="goose_p5">Il tutto accompagnato con polenta e zola dolce</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+
+   <h3 id="bolliti" data-i18n="dish_boiled">Il Bollito – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="boiled_p1">Ravioli in brodo di gallina</p>
+            <p data-i18n="boiled_p2">Cotechino con purea, gallina lessata, lingua di vitello e biancostato con Mostarda di Cremona, salsa verde e pepite di verze</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+    
+    <h2 data-i18n="section_salmi">I SALMÌ</h2>
+        <br>
+    
+    <h3 id="lepre" data-i18n="dish_hare">La Lepre – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="hare_pasta">Tagliatelle al sugo di lepre</p>
+            <p data-i18n="hare_main">Lepre in salmì con polenta, zola dolce e patate rosse di Colfiorito</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+    
+    <h3 id="capriolo" data-i18n="dish_roe_deer">Il Capriolo – 30,00 €</h3>
+        <br>
+            <p data-i18n="common_gnocco">Gnocco Fritto con Salumi</p>
+            <p data-i18n="roe_deer_pasta">Tagliatelle al sugo di capriolo</p>
+            <p data-i18n="roe_deer_main">Capriolo in salmì con polenta, zola dolce e patate rosse di Colfiorito</p>
+            <p data-i18n="common_cheese">Scaglie di “Bella Lodi”</p>
+        <br>
+
+    <h1 id="bevande-titolo" data-i18n="drinks_title">Bevande</h1>
+        <br>
+
+    <h2 id="vini-rossi" data-i18n="nav_red_wine">Vini rossi</h2>
+        <br>
+            <p>Gutturnio (Fermo)</p>
+            <p>Gutturnio (Frizzante)</p>
+            <p>Valpolicella (Fermo)</p>
+            <p>Ripasso (Fermo)</p>
+            <p>Amarone (Fermo)</p>
+            <p>Montepulciano (Fermo)</p>
+        <br>
+
+    <h2 id="vini-bianchi" data-i18n="nav_white_wine">Vini bianchi</h2>
+        <br>
+            <p>Prosecco DOC (Frizzante)</p>
+            <p>Muller Thurgau (Fermo)</p>
+            <p>Lugana (Fermo)</p>
+            <p>Ortrugo (Fermo e frizzante)</p>
+        <br>
+
+    <h2 id="analcolici" data-i18n="nav_soft_drinks">Bevande analcoliche</h2>
+        <br>
+            <p data-i18n="water_opt">Acqua Naturale e Frizzante</p>
+            <p>Coca Cola</p>
+            <p>Fanta</p>
+            <p>Sprite</p>
+            <p>San Benedetto Thè</p>
+            <p>Fuze tea</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+    </div>
+    </aside>
+
+    <!-- Script JavaScript per il cambio lingua -->
+    <script>
+        const translations = {
+            it: {
+                header_slogan: "Il sapore della tradizione cremasca",
+                search_placeholder: "Cerca il tuo piatto preferito",
+                nav_menu: "Menu",
+                nav_oca: "Oca",
+                nav_asino: "Asina",
+                nav_cinghiale: "Cinghiale",
+                nav_lepre: "Lepre",
+                nav_bolliti: "Bolliti",
+                nav_capriolo: "Capriolo",
+                nav_cervo: "Cervo",
+                nav_drinks: "Bevande",
+                nav_red_wine: "Vini rossi",
+                nav_white_wine: "Vini bianchi",
+                nav_soft_drinks: "Bevande analcoliche",
+                extra_welcome: "Benvenuti nella nostra trattoria!",
+                extra_discover: "Scopri i piatti tipici della tradizione cremasca.",
+                extra_experience: "Vieni a trovarci per un’esperienza indimenticabile dal 1893.",
+                extra_email: "La nostra mail per maggiori informazioni",
+                extra_phone: "Il nostro numero di telefono",
+                main_menu_title: "Menù",
+                section_brasati: "I BRASATI",
+                dish_wild_boar: "Il Cinghiale – 30,00 €",
+                common_gnocco: "Gnocco Fritto con Salumi",
+                wild_boar_pasta: "Tagliatelle al ragù di cinghiale",
+                wild_boar_main: "Stracotto (Brasato) di cinghiale con polenta, zola dolce e patate rosse di Colfiorito",
+                common_cheese: "Scaglie di “Bella Lodi”",
+                dish_donkey: "L’Asina – 30,00 €",
+                donkey_pasta: "Tagliatelle al ragù di asina",
+                donkey_main: "Stracotto (Brasato) di asina con polenta, zola dolce e patate rosse di Colfiorito",
+                dish_deer: "Il Cervo – 30,00 €",
+                deer_pasta: "Tagliatelle al ragù di cervo",
+                deer_main: "Stracotto (Brasato) di cervo con polenta, zola dolce e patate rosse di Colfiorito",
+                section_farm: "LA CASCINA",
+                dish_goose: "L’Oca – 30,00 €",
+                goose_p1: "Ciccioli d’Oca (Gratù)",
+                goose_p2: "Fegato d’Oca al salto",
+                goose_p3: "Bracioline (Brisole) di petto d’Oca",
+                goose_p4: "Cassoela d’Oca con le verze",
+                goose_p5: "Il tutto accompagnato con polenta e zola dolce",
+                dish_boiled: "Il Bollito – 30,00 €",
+                boiled_p1: "Ravioli in brodo di gallina",
+                boiled_p2: "Cotechino con purea, gallina lessata, lingua di vitello e biancostato con Mostarda di Cremona, salsa verde e pepite di verze",
+                section_salmi: "I SALMÌ",
+                dish_hare: "La Lepre – 30,00 €",
+                hare_pasta: "Tagliatelle al sugo di lepre",
+                hare_main: "Lepre in salmì con polenta, zola dolce e patate rosse di Colfiorito",
+                dish_roe_deer: "Il Capriolo – 30,00 €",
+                roe_deer_pasta: "Tagliatelle al sugo di capriolo",
+                roe_deer_main: "Capriolo in salmì con polenta, zola dolce e patate rosse di Colfiorito",
+                drinks_title: "Bevande",
+                water_opt: "Acqua Naturale e Frizzante"
+            },
+            en: {
+                header_slogan: "The taste of Crema tradition",
+                search_placeholder: "Search your favorite dish",
+                nav_menu: "Menu",
+                nav_oca: "Goose",
+                nav_asino: "Donkey",
+                nav_cinghiale: "Wild Boar",
+                nav_lepre: "Hare",
+                nav_bolliti: "Boiled Meats",
+                nav_capriolo: "Roe Deer",
+                nav_cervo: "Deer",
+                nav_drinks: "Drinks",
+                nav_red_wine: "Red wines",
+                nav_white_wine: "White wines",
+                nav_soft_drinks: "Soft drinks",
+                extra_welcome: "Welcome to our trattoria!",
+                extra_discover: "Discover traditional dishes from Crema.",
+                extra_experience: "Visit us for an unforgettable experience since 1893.",
+                extra_email: "Our email for more information",
+                extra_phone: "Our phone number",
+                main_menu_title: "Menu",
+                section_brasati: "BRAISED MEATS",
+                dish_wild_boar: "Wild Boar – €30.00",
+                common_gnocco: "Fried Gnocco with Cured Meats",
+                wild_boar_pasta: "Tagliatelle with wild boar ragù",
+                wild_boar_main: "Braised wild boar with polenta, sweet gorgonzola and Colfiorito red potatoes",
+                common_cheese: "“Bella Lodi” cheese shavings",
+                dish_donkey: "Donkey – €30.00",
+                donkey_pasta: "Tagliatelle with donkey ragù",
+                donkey_main: "Braised donkey with polenta, sweet gorgonzola and Colfiorito red potatoes",
+                dish_deer: "Deer – €30.00",
+                deer_pasta: "Tagliatelle with deer ragù",
+                deer_main: "Braised deer with polenta, sweet gorgonzola and Colfiorito red potatoes",
+                section_farm: "THE FARM",
+                dish_goose: "Goose – €30.00",
+                goose_p1: "Goose Cracklings (Gratù)",
+                goose_p2: "Sautéed Goose Liver",
+                goose_p3: "Goose Breast Chops",
+                goose_p4: "Goose Cassoela with savoy cabbage",
+                goose_p5: "Served with polenta and sweet gorgonzola",
+                dish_boiled: "Boiled Meats – €30.00",
+                boiled_p1: "Ravioli in chicken broth",
+                boiled_p2: "Cotechino with mashed potatoes, boiled hen, veal tongue, and brisket with Cremona Mostarda, green sauce, and cabbage nuggets",
+                section_salmi: "SALMÌ (WINE STEWS)",
+                dish_hare: "Hare – €30.00",
+                hare_pasta: "Tagliatelle with hare sauce",
+                hare_main: "Hare in salmì with polenta, sweet gorgonzola and Colfiorito red potatoes",
+                dish_roe_deer: "Roe Deer – €30.00",
+                roe_deer_pasta: "Tagliatelle with roe deer sauce",
+                roe_deer_main: "Roe deer in salmì with polenta, sweet gorgonzola and Colfiorito red potatoes",
+                drinks_title: "Drinks",
+                water_opt: "Still and Sparkling Water"
+            },
+            es: {
+                header_slogan: "El sabor de la tradición de Crema",
+                search_placeholder: "Busca tu plato favorito",
+                nav_menu: "Menú",
+                nav_oca: "Oca",
+                nav_asino: "Asno",
+                nav_cinghiale: "Jabalí",
+                nav_lepre: "Liebre",
+                nav_bolliti: "Cocidos",
+                nav_capriolo: "Corzo",
+                nav_cervo: "Ciervo",
+                nav_drinks: "Bebidas",
+                nav_red_wine: "Vinos tintos",
+                nav_white_wine: "Vinos blancos",
+                nav_soft_drinks: "Bebidas sin alcohol",
+                extra_welcome: "¡Bienvenidos a nuestra trattoria!",
+                extra_discover: "Descubre los platos típicos de la tradición de Crema.",
+                extra_experience: "Visítanos para una experiencia inolvidable desde 1893.",
+                extra_email: "Nuestro correo para más información",
+                extra_phone: "Nuestro número de teléfono",
+                main_menu_title: "Menú",
+                section_brasati: "LOS ESTOFADOS",
+                dish_wild_boar: "El Jabalí – 30,00 €",
+                common_gnocco: "Gnocco Frito con Embutidos",
+                wild_boar_pasta: "Tagliatelle con ragú de jabalí",
+                wild_boar_main: "Estofado de jabalí con polenta, gorgonzola dulce y patatas rojas de Colfiorito",
+                common_cheese: "Virutas de “Bella Lodi”",
+                dish_donkey: "El Asno – 30,00 €",
+                donkey_pasta: "Tagliatelle con ragú de asno",
+                donkey_main: "Estofado de asno con polenta, gorgonzola dulce y patatas rojas de Colfiorito",
+                dish_deer: "El Ciervo – 30,00 €",
+                deer_pasta: "Tagliatelle con ragú de ciervo",
+                deer_main: "Estofado de ciervo con polenta, gorgonzola dulce y patatas rojas de Colfiorito",
+                section_farm: "LA GRANJA",
+                dish_goose: "La Oca – 30,00 €",
+                goose_p1: "Chicharrones de oca (Gratù)",
+                goose_p2: "Hígado de oca salteado",
+                goose_p3: "Chuletas de pechuga de oca",
+                goose_p4: "Cassoela de oca con berza",
+                goose_p5: "Todo acompañado con polenta y gorgonzola dulce",
+                dish_boiled: "El Cocido – 30,00 €",
+                boiled_p1: "Ravioli en caldo de gallina",
+                boiled_p2: "Cotechino con puré, gallina cocida, lengua de ternera y costillar con Mostarda de Cremona, salsa verde y trocitos de berza",
+                section_salmi: "EN SALMÌ (GUISOS)",
+                dish_hare: "La Liebre – 30,00 €",
+                hare_pasta: "Tagliatelle con salsa de liebre",
+                hare_main: "Liebre en salmì con polenta, gorgonzola dulce y patatas rojas de Colfiorito",
+                dish_roe_deer: "El Corzo – 30,00 €",
+                roe_deer_pasta: "Tagliatelle con salsa de corzo",
+                roe_deer_main: "Corzo en salmì con polenta, gorgonzola dulce y patatas rojas de Colfiorito",
+                drinks_title: "Bebidas",
+                water_opt: "Agua Natural y con Gas"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+            placeholders.forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        document.getElementById('language-select').addEventListener('change', (event) => {
+            const selectedLang = event.target.value;
+            changeLanguage(selectedLang);
+            localStorage.setItem('preferred-lang', selectedLang);
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-lang') || 'it';
+            document.getElementById('language-select').value = savedLang;
+            changeLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
+
